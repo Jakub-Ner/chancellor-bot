@@ -8,6 +8,8 @@ To run the dev server for your app, use:
 
 ```sh
 nx dev hosted-express
+# alternatively run all apps
+bun run dev # nx run-many -t dev
 ```
 
 ```sh
@@ -24,6 +26,12 @@ To see all available targets to run for a project, run:
 
 ```sh
 npx nx show project hosted-express
+```
+
+To lint and typecheck your code, run:
+
+```sh
+nx run-many -t lint typecheck
 ```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.

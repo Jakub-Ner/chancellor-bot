@@ -1,9 +1,20 @@
 {
-  "name": "@chancellor-bot/workers",
+  "name": "workers",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "bun --hot run src/main.ts"
+  },
+  "nx": {
+    "targets": {
+      "dev": {
+        "executor": "nx:run-script",
+        "options": {
+          "command": "dev"
+        },
+        "continuous": true
+      }
+    }
   },
   "dependencies": {
     "express": "^4.21.2"
