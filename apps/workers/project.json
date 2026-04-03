@@ -1,7 +1,7 @@
 {
-  "name": "hosted-express",
+  "name": "workers",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/hosted-express/src",
+  "sourceRoot": "apps/workers/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -17,8 +17,8 @@
       "cache": true,
       "executor": "@nx/js:prune-lockfile",
       "outputs": [
-        "{workspaceRoot}/apps/hosted-express/dist/package.json",
-        "{workspaceRoot}/apps/hosted-express/dist/bun.lock"
+        "{workspaceRoot}/apps/workers/dist/package.json",
+        "{workspaceRoot}/apps/workers/dist/bun.lock"
       ],
       "options": {
         "buildTarget": "build"
@@ -27,7 +27,7 @@
     "copy-workspace-modules": {
       "dependsOn": ["build"],
       "cache": true,
-      "outputs": ["{workspaceRoot}/apps/hosted-express/dist/workspace_modules"],
+      "outputs": ["{workspaceRoot}/apps/workers/dist/workspace_modules"],
       "executor": "@nx/js:copy-workspace-modules",
       "options": {
         "buildTarget": "build"
@@ -43,15 +43,15 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "hosted-express:build",
+        "buildTarget": "workers:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "hosted-express:build:development"
+          "buildTarget": "workers:build:development"
         },
         "production": {
-          "buildTarget": "hosted-express:build:production"
+          "buildTarget": "workers:build:production"
         }
       }
     }

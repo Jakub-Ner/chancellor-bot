@@ -4,9 +4,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug @chancellor-bot/hosted-express with Nx",
+      "name": "Debug hosted-express with Nx",
       "runtimeExecutable": "bun",
-      "runtimeArgs": ["nx", "serve", "@chancellor-bot/hosted-express"],
+      "runtimeArgs": ["nx", "serve", "hosted-express"],
       "env": {
         "NODE_OPTIONS": "--inspect=9229"
       },
@@ -16,6 +16,24 @@
       "sourceMaps": true,
       "outFiles": [
         "${workspaceFolder}/apps/hosted-express/dist/**/*.(m|c|)js",
+        "!**/node_modules/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug workers with Nx",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["nx", "serve", "workers"],
+      "env": {
+        "NODE_OPTIONS": "--inspect=9230"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceFolder}/apps/workers/dist/**/*.(m|c|)js",
         "!**/node_modules/**"
       ]
     }

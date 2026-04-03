@@ -1,17 +1,17 @@
 {
-  "name": "hosted-express-e2e",
+  "name": "workers-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "implicitDependencies": ["hosted-express"],
+  "implicitDependencies": ["workers"],
   "targets": {
     "e2e": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
       "options": {
-        "jestConfig": "apps/hosted-express-e2e/jest.config.cts",
+        "jestConfig": "apps/workers-e2e/jest.config.cts",
         "passWithNoTests": true
       },
-      "dependsOn": ["hosted-express:build", "hosted-express:serve"]
+      "dependsOn": ["workers:build", "workers:serve"]
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "hosted-express-e2e",
+  "name": "@chancellor-bot/workers-e2e",
   "version": "0.0.1",
   "private": true
 }

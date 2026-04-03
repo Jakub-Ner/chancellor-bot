@@ -4,10 +4,6 @@
   "workspaces": {
     "": {
       "name": "@chancellor-bot/source",
-      "dependencies": {
-        "axios": "^1.6.0",
-        "express": "^4.21.2",
-      },
       "devDependencies": {
         "@eslint/js": "^9.8.0",
         "@nx/eslint": "22.6.4",
@@ -23,7 +19,6 @@
         "@swc-node/register": "~1.11.1",
         "@swc/core": "~1.15.5",
         "@swc/helpers": "~0.5.18",
-        "@types/express": "^4.17.21",
         "@types/node": "20.19.9",
         "eslint": "^9.8.0",
         "eslint-config-prettier": "^10.0.0",
@@ -37,14 +32,25 @@
       },
     },
     "apps/hosted-express": {
-      "name": "@chancellor-bot/hosted-express",
+      "name": "hosted-express",
       "version": "0.0.1",
       "dependencies": {
         "express": "^4.21.2",
       },
     },
     "apps/hosted-express-e2e": {
-      "name": "@chancellor-bot/hosted-express-e2e",
+      "name": "hosted-express-e2e",
+      "version": "0.0.1",
+    },
+    "apps/workers": {
+      "name": "@chancellor-bot/workers",
+      "version": "0.0.1",
+      "dependencies": {
+        "express": "^4.21.2",
+      },
+    },
+    "apps/workers-e2e": {
+      "name": "@chancellor-bot/workers-e2e",
       "version": "0.0.1",
     },
   },
@@ -287,9 +293,9 @@
 
     "@bufbuild/protobuf": ["@bufbuild/protobuf@2.11.0", "", {}, "sha512-sBXGT13cpmPR5BMgHE6UEEfEaShh5Ror6rfN3yEK5si7QVrtZg8LEPQb0VVhiLRUslD2yLnXtnRzG035J/mZXQ=="],
 
-    "@chancellor-bot/hosted-express": ["@chancellor-bot/hosted-express@workspace:apps/hosted-express"],
+    "@chancellor-bot/workers": ["@chancellor-bot/workers@workspace:apps/workers"],
 
-    "@chancellor-bot/hosted-express-e2e": ["@chancellor-bot/hosted-express-e2e@workspace:apps/hosted-express-e2e"],
+    "@chancellor-bot/workers-e2e": ["@chancellor-bot/workers-e2e@workspace:apps/workers-e2e"],
 
     "@colordx/core": ["@colordx/core@5.0.3", "", {}, "sha512-xBQ0MYRTNNxW3mS2sJtlQTT7C3Sasqgh1/PsHva7fyDb5uqYY+gv9V0utDdX8X80mqzbGz3u/IDJdn2d/uW09g=="],
 
@@ -1256,6 +1262,10 @@
     "hasown": ["hasown@2.0.2", "", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ=="],
 
     "he": ["he@1.2.0", "", { "bin": { "he": "bin/he" } }, "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="],
+
+    "hosted-express": ["hosted-express@workspace:apps/hosted-express"],
+
+    "hosted-express-e2e": ["hosted-express-e2e@workspace:apps/hosted-express-e2e"],
 
     "hpack.js": ["hpack.js@2.1.6", "", { "dependencies": { "inherits": "^2.0.1", "obuf": "^1.0.0", "readable-stream": "^2.0.1", "wbuf": "^1.1.0" } }, "sha512-zJxVehUdMGIKsRaNt7apO2Gqp0BdqW5yaiGHXXmbpvxgBYVZnAql+BJb4RO5ad2MgpbZKn5G6nMnegrH1FcNYQ=="],
 
