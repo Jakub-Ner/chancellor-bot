@@ -34,5 +34,9 @@
   },
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "dependencies": {
+    "@varlock/bitwarden-plugin": "^0.0.6",
+    "varlock": "^0.7.1"
+  }
 }

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "bun --hot run src/main.ts"
+    "dev": "bunx varlock run -- bun --hot run src/main.ts"
   },
   "nx": {
     "targets": {
