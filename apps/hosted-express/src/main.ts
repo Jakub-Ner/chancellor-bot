@@ -1,11 +1,11 @@
-/// <reference types="../env.d.ts" />
+import { env } from './env';
 import express from 'express';
 
 const app = express();
 const port = 8080;
 
 app.get('/', (req, res) => {
-  console.log('using', process.env.MAILPIT__URL);
+  console.log('using', { env: env.MAILPIT__URL });
   res.send('Hello World!');
 });
 
