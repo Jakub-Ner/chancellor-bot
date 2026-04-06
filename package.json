@@ -19,6 +19,7 @@
     "@types/node": "20.19.9",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
+    "husky": "^9.1.7",
     "nx": "22.6.4",
     "prettier": "~3.6.2",
     "react-refresh": "^0.10.0",
@@ -30,7 +31,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": " nx run-many -t dev"
+    "dev": " nx run-many -t dev",
+    "prepare": "husky"
   },
   "workspaces": [
     "apps/*"
