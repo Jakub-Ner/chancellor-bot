@@ -1,14 +1,32 @@
+import {
+  createTelemetrySDK,
+  devExporter,
+  traceExporter,
+  type TelemetryConfig,
+} from './configs/telemetry';
 import { env } from './env';
-import express from 'express';
 
-const app = express();
-const port = 8080;
+const telemetryConfig: TelemetryConfig = {
+  serviceName: env.SERVICE_NAME,
+  serviceVersion: env.SERVICE_VERSION,
+  otlpEndpoint: env.OTLP_ENDPOINT,
+  environment: env.NODE_ENV,
+};
 
-app.get('/', (req, res) => {
-  console.log('using', { env: env.MAILPIT__URL });
-  res.send('Hello World!');
+const sdk = createTelemetrySDK({
+  config: telemetryConfig,
+  spanProcessors: [traceExporter(), devExporter()],
 });
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}...`);
+sdk.start();
+console.log('OpenTelemetry initialized');
+
+process.on('SIGTERM', async () => {
+  await sdk.shutdown();
+  console.log('OpenTelemetry shut down successfully');
+  process.exit(0);
 });
+
+import { startServer } from './server';
+
+startServer();
